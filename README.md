@@ -64,3 +64,18 @@ npm run dev
 `frontend/.env` に `VITE_API_BASE_URL=http://example.com` を設定してください。
 
 ブラウザで `http://localhost:5173` を開くとTodoアプリが表示されます。
+
+## Docker Composeで起動
+
+バックエンド・フロントエンドをまとめて起動できます。
+
+```bash
+docker compose up --build
+```
+
+- フロントエンド: http://localhost:5173
+- バックエンドAPI: http://localhost:8000
+
+`backend/`・`frontend/` はホストのディレクトリをボリュームマウントしているため、
+コードを編集すると自動でリロードされます(バックエンドは `--reload`、
+フロントエンドはViteのHMR)。停止する場合は `docker compose down` を実行してください。
